@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router,ActivatedRoute} from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogContentExampleDialogComponent } from './dialog-content-example-dialog/dialog-content-example-dialog.component';
 export interface PeriodicElement {
@@ -26,17 +25,12 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class AppComponent {
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
     public dialog: MatDialog
     ) {
     }
 
   displayedColumns: string[] = ['SNo','Name','DOB','gender','address','address1','state','city','pincode','educationalDetails','actions'];
   dataSource = ELEMENT_DATA;
-  // onViewDetails(id: number) {
-  //   this.router.navigate([id], { relativeTo: this.route });
-  // }
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialogComponent);
 
