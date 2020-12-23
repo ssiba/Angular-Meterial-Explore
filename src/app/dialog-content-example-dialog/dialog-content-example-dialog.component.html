@@ -1,4 +1,5 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<h2 mat-dialog-title>Details of 10 Column</h2>
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <ng-container matColumnDef="SNo">
     <th mat-header-cell *matHeaderCellDef="displayedColumns"> Sl No </th>
     <td mat-cell *matCellDef="let element"> {{element.SNo}} </td>
@@ -52,17 +53,6 @@
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element">
       <div class="action">
-        <!-- <span class="anspan mbnone dtl">
-          <a href="javascript:void(0)" (click)="onViewDetails(element.id)" color="accent">
-            <i class="fas fa-eye"></i> <span class="mbnone"> Details</span>
-          </a>
-
-        </span> -->
-        <!-- <span class="anspan mbnone dtl">
-          <a href="javascript:void(0)" (click)="onViewDetails(element.id)" color="accent">
-             <span class="mbnone"> show dialogue box</span>
-          </a>
-        </span> -->
         <button mat-button (click)="openDialog()">Show dialog</button>
 
       </div>
@@ -71,5 +61,39 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+</table> -->
+
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>To do</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="ELEMENT_DATA_ONE"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of ELEMENT_DATA_ONE" cdkDrag>{{item.Name}}</div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Done</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="ELEMENT_DATA_TWO"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of ELEMENT_DATA_TWO" cdkDrag>{{item.Name}}</div>
+      </div>
+    </div>
+  </div>
+  
+<mat-dialog-actions align="end">
+  <!-- <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true"  (click)="saveDilogData()"cdkFocusInitial>Save</button> -->
+  <button mat-button >Cancel</button>
+  <button mat-button   (click)="saveDilogData()"cdkFocusInitial>Save</button>
+</mat-dialog-actions>
+
 
